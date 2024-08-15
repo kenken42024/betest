@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="index.css">
+
+        <title>File Sharing</title>
+    </head>
+    <body>
+        <!-- File Upload Form -->
+        <form action="/files" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="">File Sharing</label>
+            </div>
+            <div class="mb-4">
+                <label for="file">File</label>
+                <input type="file" id="file" name="file" required>
+            </div>
+            <div>
+                <button type="submit">Upload</button>
+            </div>
+        </form>
+    
+        <!-- Uploaded Files Section -->
+        <div class="uploads">
+            <h1>Uploaded Files</h1>
+            <div class="download">
+                <% files.forEach(file => { %>
+                    <div class="flex-space-between mb-2">
+                        <!-- Display file name -->
+                        <span><%= file.fileName %></span>
+                        
+                        <!-- Download link -->
+                        <a href="<%= file.fileLink %>">Download</a>
+    
+                        <!-- Delete Form -->
+                        <form id="delete-form-<%= file.fileName %>" action="/files/<%= encodeURIComponent(file.deleteLink) %>" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </body>
+</html>

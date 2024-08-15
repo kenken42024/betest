@@ -1,0 +1,41 @@
+form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+}
+
+.mb-2 {
+    padding: 0px 0px 1rem 0px;
+}
+
+.mb-4 {
+    padding: 0px 0px 2rem 0px;
+}
+
+.gap-4{
+    gap: 2rem;
+}
+
+.uploads {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row;
+}
+
+.download {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    min-width: 300px;
+}
